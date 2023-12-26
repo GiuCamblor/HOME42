@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft_ft.c                                         :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 16:31:53 by gcamblor          #+#    #+#             */
-/*   Updated: 2023/12/26 16:32:00 by gcamblor         ###   ########.fr       */
+/*   Created: 2023/12/26 18:46:41 by gcamblor          #+#    #+#             */
+/*   Updated: 2023/12/26 18:47:02 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <unistd.h>
 #include <stdio.h>
 
-void ft_ft(int *nbr)
+int ft_iterative_factorial(int nb)
 {
-	*nbr = 42;
+	int fact;
+	unsigned int res;
+
+	fact = nb;
+	while(fact > 1)
+	{
+		res = fact * fact-1;
+		--fact;
+	}
+	return(res);
 }
 
-int main(void)
+int	main(unsigned int res)
 {
-	int num;
-	num = 0;
-	printf("VALOR ANTES DE FT_FT: %i\n", num);
-	ft_ft(&num);
-	printf("VALOR DESPUÉS DE FT_FT: %i\n", num);
+	int nb;
+
+	nb = 6;
+	printf("Factorial of %i is ", nb);
+	ft_iterative_factorial(int nb);
+	printf("%i", res);
 	return(0);
 }

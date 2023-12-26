@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft_ft.c                                         :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 16:31:53 by gcamblor          #+#    #+#             */
-/*   Updated: 2023/12/26 16:32:00 by gcamblor         ###   ########.fr       */
+/*   Created: 2023/12/26 17:13:12 by gcamblor          #+#    #+#             */
+/*   Updated: 2023/12/26 17:13:17 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <unistd.h>
 #include <stdio.h>
 
-void ft_ft(int *nbr)
+void	ft_swap(int *a, int *b)
 {
-	*nbr = 42;
+	int	temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
-int main(void)
+int	main(void)
 {
-	int num;
-	num = 0;
-	printf("VALOR ANTES DE FT_FT: %i\n", num);
-	ft_ft(&num);
-	printf("VALOR DESPUÉS DE FT_FT: %i\n", num);
-	return(0);
+	int	a;
+	int	b;
+
+	a = 10;
+	b = 20;
+	printf("A = %i | ", a);
+	printf("B = %i\n", b);
+	ft_swap(&a, &b);
+	printf("AFTER ft_swap...\nA = %i | ", a);
+	printf("B = %i\n", b);
+	return (0);
 }

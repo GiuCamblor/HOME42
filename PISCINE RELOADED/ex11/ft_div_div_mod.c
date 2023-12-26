@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft_ft.c                                         :+:      :+:    :+:   */
+/*   ft_div_div_mod.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 16:31:53 by gcamblor          #+#    #+#             */
-/*   Updated: 2023/12/26 16:32:00 by gcamblor         ###   ########.fr       */
+/*   Created: 2023/12/26 17:27:40 by gcamblor          #+#    #+#             */
+/*   Updated: 2023/12/26 17:27:44 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <unistd.h>
 #include <stdio.h>
 
-void ft_ft(int *nbr)
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	*nbr = 42;
+	*div = a / b;
+	*mod = a % b;
 }
 
-int main(void)
+int	main(void)
 {
-	int num;
-	num = 0;
-	printf("VALOR ANTES DE FT_FT: %i\n", num);
-	ft_ft(&num);
-	printf("VALOR DESPUÉS DE FT_FT: %i\n", num);
+	int	a;
+	int	b;
+	int	div;
+	int	mod;
+
+	a = 25;
+	b = 4;
+	ft_div_mod(a, b, &div, &mod);
+	printf("%i / %i = %i & %i", a, b, div, mod);
 	return(0);
 }
