@@ -16,7 +16,7 @@
 int ft_iterative_factorial(int nb)
 {
 	int fact;
-	unsigned int res;
+	int res;
 
 	fact = nb;
 	while(fact > 1)
@@ -27,13 +27,13 @@ int ft_iterative_factorial(int nb)
 	return(res);
 }
 
-int	main(unsigned int res)
+int	main(int res)
 {
 	int nb;
 
 	nb = 6;
 	printf("Factorial of %i is ", nb);
-	ft_iterative_factorial(int nb);
-	printf("%i", res);
+	ft_iterative_factorial(nb);
+	printf("%i", nb);
 	return(0);
 }
