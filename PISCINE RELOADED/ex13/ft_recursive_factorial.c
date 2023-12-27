@@ -29,8 +29,7 @@ int main()
 	int num;
 	int res;
 
-	num = 11
-;
+	num = 11;
 	res = ft_recursive_factorial(num);
 	printf("fact of %i is %i\n", num, res);
 	return (0);
