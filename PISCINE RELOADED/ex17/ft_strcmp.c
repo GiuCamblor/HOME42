@@ -16,14 +16,14 @@
 int ft_strcmp(char *s1, char *s2)
 {
 	int i;
-	int j;
 
 	i = 0;
-	j = 0;
-	while(*s1)
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 	{
-		
+		i++;
 	}
+	return (s1[i] - s2[i]);
+
 }
 
 int main (void)
@@ -35,5 +35,6 @@ int main (void)
 	str1 = "ESTA ES LA MAYOR";
 	str2 = "ESTA NO";
 	val = ft_strcmp(str1, str2);
+	write (1, val, 1);
 	return(0);
 }
