@@ -15,14 +15,25 @@
 
 int ft_strcmp(char *s1, char *s2)
 {
+	int i;
+	int j;
 
+	i = 0;
+	j = 0;
+	while(*s1)
+	{
+		
+	}
 }
 
 int main (void)
 {
 	char *str1;
 	char *str2;
+	int val;
 
-	sttr1 = "ESTA ES LA MAYOR";
-	sttr2 = "ESTA NO";
+	str1 = "ESTA ES LA MAYOR";
+	str2 = "ESTA NO";
+	val = ft_strcmp(str1, str2);
+	return(0);
 }
