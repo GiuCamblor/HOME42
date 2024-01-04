@@ -34,3 +34,5 @@ RENOMBRAR DIRECTORIOS O ARCHIVOS:
 mv actual renamed
 
 
+ex17_strcmp:
+-Error en main. Espera un puntero, recibe un int. ??

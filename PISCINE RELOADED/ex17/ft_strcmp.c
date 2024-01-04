@@ -32,7 +32,7 @@ int	main(void)
 	char *str2;
 	int dif;
 
-	str1 = "ua";
+	str1 = "uaa";
 	str2 = "uaa";
 	dif = ft_strcmp(str1, str2);
 	printf("%i", dif);

@@ -12,22 +12,27 @@
 
 #include <unistd.h>
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
 void ft_is_negative(int n)
 {
 	if (n >= 0)
 	{
-		write (1, "P \n", 1);
+		ft_putchar('P');
 	}
 	else
 	{
-		write (1, "N \n", 1);
+		ft_putchar('N');
 	}
 }
 
 int main(void)
 {
 	int num;
-	num = 0;
+	num = -56;
 	ft_is_negative(num);
 	return(0);
 }
