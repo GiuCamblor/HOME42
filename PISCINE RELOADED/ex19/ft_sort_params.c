@@ -13,45 +13,64 @@
 #include <unistd.h>
 #include <stdio.h>
 
-void sort_args(char *arr, int size)
+void	ft_putchar(char c)
 {
-	int count1;
-	int count2;
-	int temp;
-
-	count1 = 0;
-	while (count1 <= size-1)
-	{
-		count2 = count1 + 1;
-		while (count2 <= size -1)
-		{
-			while (arr[count1] > arr[count2])
-			{
-				temp = arr[count1];
-				arr[count1] = arr[count2];
-				arr[count2] = arr[temp];
-			}
-			count2++;
-		}
-		count1++;
-	}
+	write(1, &c, 1);
 }
 
-int	main(int argc, char *argv[])
+void ft_putstr(char *str)
+{
+	char i;
+
+	i = 0;
+	while(str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	ft_putchar('\n');
+}
+
+void	ft_swap(char **a, char **b)
+{
+	char	**temp;
+
+	temp = a;
+	a = b;
+	b = temp;
+}
+
+int ft_strcmp(char *s1, char *s2)
 {
 	int i;
-	int size;
-	char *newArr[];
 
-	while(argv[i])
-		i++;
-	size = i-1;
-	neawArr = sort_args(*argv, size);
 	i = 0;
-	while (i < size)
+	while(s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 	{
 		i++;
-		printf("%s\n", newArr[i]);
+	}
+	return (s1[i] - s2[i]);
+}
+
+int	main(int argc, char **argv)
+{
+	int	i;
+	int j;
+
+	i = 1;
+
+	while (i <= argc - 1)
+	{
+		j = i + 1;
+		while (j <= argc - 1)
+		{
+			while (ft_strcmp(argv[i], argv[j]) > 0 )
+			{
+				ft_swap(&argv[i], &argv[j]);
+			}
+			j++;
+		}
+		i++;
 	}
 	return(0);
 }
