@@ -33,10 +33,10 @@ void ft_putstr(char *str)
 
 void	ft_swap(char **a, char **b)
 {
-	char	**temp;
+	char	*temp;
 
-	temp = a;
-	a = b;
+	temp = *a;
+	*a = *b;
 	b = temp;
 }
 
@@ -62,9 +62,9 @@ int	main(int argc, char **argv)
 	while (i <= argc - 1)
 	{
 		j = i + 1;
-		while (j <= argc - 1)
+		while (j <= argc -1)
 		{
-			while (ft_strcmp(argv[i], argv[j]) > 0 )
+			if (ft_strcmp(argv[i], argv[j]) > 0 )
 			{
 				ft_swap(&argv[i], &argv[j]);
 			}
@@ -72,5 +72,12 @@ int	main(int argc, char **argv)
 		}
 		i++;
 	}
-	return(0);
+	i = 1;
+	while (i < argc)
+	{
+		ft_putstr(argv[i]);
+		i++;
+	}
+			ft_putchar('\n');
+	return (0);
 }
