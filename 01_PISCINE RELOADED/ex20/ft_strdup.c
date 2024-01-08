@@ -21,7 +21,6 @@ char *ft_strdup(const char *src, int len)
             copy[i] = src[i];
         }
     }
-
     return copy;
 }
 
@@ -35,7 +34,7 @@ void ft_putstr(const char *str)
 	char i;
 
 	i = 0;
-	while(str[i] != '\0')
+	while(str[i])
 	{
 		ft_putchar(str[i]);
 		i++;
@@ -48,10 +47,11 @@ int	main(void)
     char *copy;
     int len;
 
-    str = "CADENA";
+    str = "CARDENA";
     len = ft_strlen(str);
     copy = ft_strdup(str, len);
     ft_putstr(str);
+    ft_putstr(copy);
 
 	str = "CADENA";
     printf("\n");
