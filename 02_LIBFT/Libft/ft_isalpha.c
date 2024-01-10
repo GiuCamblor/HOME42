@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {
@@ -24,15 +23,5 @@ int	ft_isalpha(int c)
 	{
 		return (0);
 	}
-	return(0);
+	return (0);
 }
-/*
-int main(void)
-{
-	char src;	
-
-	src = 'P';
-	printf("Boolean of %c = %i\n", src, ft_isalpha(src));
-	return(0);
-}
-*/
