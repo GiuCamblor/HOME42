@@ -33,6 +33,5 @@ int	main(void)
 	str = "CINCOSzsdfvdzfbdgf";
 	val = ft_strlen(str);
 	printf ("La palabra %s tiene %i caracteres\n", str, val);
-//	write (1, val, 2); PREGUNTA POR QUÉ NO FUNCIONA CON WRITE
 	return(0);
 }
