@@ -20,11 +20,13 @@ int	main(void)
 {
 	int	c;
 	size_t k;
-	char str1[] = "DUBLINESES";
-	char str2[20] = "BERGANTIN";
+	char str1[13] = "BERGANTIN";
+	char str2[13] = "DUBLINESES";
+	char dst1[5];
 
-	k = 3;
-	c = 'M';
+	k = 4;
+	c = 'a';
+	/* 
 	printf ("EN FT_ISALPHA EL VALOR de %i ES: %d\n", c, isalpha(c));	
 	printf ("EN ISALPHA EL VALOR de %i ES: %d\n", c, ft_isalpha(c));
 	printf ("EN FT_ISDIGIT EL VALOR de %i ES: %i\n", c, ft_isdigit(c));
@@ -43,6 +45,15 @@ int	main(void)
 	printf ("DESPUÉS DE BEZERO EL ARRAY ES: %s\n", &str1[6]);
 	printf ("ORIGEN EN MEMCPY: %s\n", str1);
 	printf ("DESTINO DE MEMCPY: %s\n", str2);
-	printf ("RESUTADO DE MEMCPY: %s\n", memcpy(str2, str1, k));
+	printf ("RESUTADO DE MEMCPY: %s\n", ft_memcpy(str2, str1, k));
+	printf ("ORIGEN EN MEMMOVE: %s\n", str1);
+	printf ("DESTINO DE MEMMOVE: %s\n", str2);
+	printf ("RESUTADO DE MEMMOVE: %s\n", ft_memmove(str2, str1, k));
+	printf ("ORIGEN EN STRLCPY: %s\n", str1);
+	printf ("DESTINO EN STRLCPY: %s\n", dst1);
+	printf ("RESULTADO: %lu\n", ft_strlcpy(str1, dst1, k));
+	 */
+	printf ("LOWERCASE: %c\n", c);
+	printf ("UPPERCASE: %c\n", ft_toupper(c));
 	return (0);
 }
