@@ -20,15 +20,17 @@ int	main(void)
 {
 	int	c;
 	size_t k;
-	char str1[13] = "BERGANTIN";
-	char str2[13] = "DUBLINESES";
+	char *str1 = "BERGALTIN";
+	char str2[13] = "BERGAMTIN";
 	char dst1[5];
+	char ch;
+	char *str;
 
-	k = 4;
-	c = 'a';
-	/* 
-	printf ("EN FT_ISALPHA EL VALOR de %i ES: %d\n", c, isalpha(c));	
+	k = 8;
+	c = 'A';
+/*
 	printf ("EN ISALPHA EL VALOR de %i ES: %d\n", c, ft_isalpha(c));
+	printf ("EN FT_ISALPHA EL VALOR de %i ES: %d\n", c, isalpha(c));	
 	printf ("EN FT_ISDIGIT EL VALOR de %i ES: %i\n", c, ft_isdigit(c));
 	printf ("EN ISDIGIT EL VALOR de %i ES: %i\n", c, isdigit(c));
 	printf ("EN FT_ALNUM EL VALOR de %i ES: %i\n", c, ft_isalnum(c));
@@ -37,8 +39,8 @@ int	main(void)
 	printf ("EN ISASCII EL VALOR de %i ES: %i\n", c, isascii(c));
 	printf ("EN FT_ISPRINT EL VALOR de %i ES: %i\n", c, ft_isprint(c));
 	printf ("EN ISPRINT EL VALOR de %i ES: %i\n", c, isprint(c));
-	printf ("EN FT_STRLEN EL VALOR de %s ES: %i\n", str1, ft_strlen(str1));
 	printf ("EN STRLEN EL VALOR de %s ES: %lu\n", str1, strlen(str1));
+	printf ("EN FT_STRLEN EL VALOR de %s ES: %i\n", str1, ft_strlen(str1));
 	printf ("ANTES DE MEMSET EL ARRAY ES: %s\n", str1);
 	printf ("DESPUÉS DE MEMSET EL ARRAY ES: %s\n", ft_memset(str1, c, 4));
 	ft_bzero(str1, 4);
@@ -52,8 +54,21 @@ int	main(void)
 	printf ("ORIGEN EN STRLCPY: %s\n", str1);
 	printf ("DESTINO EN STRLCPY: %s\n", dst1);
 	printf ("RESULTADO: %lu\n", ft_strlcpy(str1, dst1, k));
-	 */
 	printf ("LOWERCASE: %c\n", c);
 	printf ("UPPERCASE: %c\n", ft_toupper(c));
+	printf ("UPPERCASE: %c\n", c);
+	printf ("LOWERCASE: %c\n", ft_tolower(c));
+ 	printf ("STRING: %s\n", str1);
+	printf ("CHARACTER TO FIND: %c\n", c);
+	printf ("RESULTADO: %s\n", ft_strchr(str1, c));
+	write (1, ft_strchr(str1, c), 1);
+	printf ("COMPARAR \"%s\" Y \"%s\"\n", str1, str2);
+	printf ("RESULTADO: %i\n", strcmp(str1, str2));
+	printf ("RESULTADO: %i\n", ft_strcmp(str1, str2));
+*/
+ 	printf ("STRING: %s\n", str1);
+	printf ("CHARACTER TO FIND: %c\n", c);
+	printf ("RESULTADO: %s\n", (char *)ft_memchr(str1, c, k));
+
 	return (0);
 }

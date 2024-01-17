@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 19:34:15 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/09 19:34:44 by gcamblor         ###   ########.fr       */
+/*   Created: 2024/01/17 18:40:01 by gcamblor          #+#    #+#             */
+/*   Updated: 2024/01/17 18:40:08 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-#include <unistd.h>
-#include <stdio.h>
+int ft_strcmp(const char *s1, const char *s2)
+{
+	int i;
+	int j;
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-//int ft_isalnum(int c);
-
-#endif
+	i = 0;
+	while(s1[i] && s2[i] && s1[i] == s2[i])
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
+}

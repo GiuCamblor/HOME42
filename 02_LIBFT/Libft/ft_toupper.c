@@ -14,9 +14,10 @@
 
 int ft_toupper(int c)
 {
-	if (!ft_isalpha(c))
-		return(0);
 	if (c >= 97 && c <= 122)
+	{
 		c = c - 32;
-	return(c);
+		return (c);
+	}
+	return (c);
 }
