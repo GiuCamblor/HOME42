@@ -20,8 +20,8 @@ int	main(void)
 {
 	int	c;
 	size_t k;
-	char *str1 = "BERGALTIN";
-	char str2[13] = "BERGAMTIN";
+	char *str1 = "CAS";
+	char *str2 = "BERCANBERCALBERCASBER";
 	char dst1[5];
 	char ch;
 	char *str;
@@ -65,10 +65,15 @@ int	main(void)
 	printf ("COMPARAR \"%s\" Y \"%s\"\n", str1, str2);
 	printf ("RESULTADO: %i\n", strcmp(str1, str2));
 	printf ("RESULTADO: %i\n", ft_strcmp(str1, str2));
-*/
  	printf ("STRING: %s\n", str1);
 	printf ("CHARACTER TO FIND: %c\n", c);
 	printf ("RESULTADO: %s\n", (char *)ft_memchr(str1, c, k));
+	printf ("COMPARAR \"%s\" Y \"%s\"\n", str1, str2);
+	printf ("RESULTADO: %i\n", strcmp(str1, str2));
+	printf ("RESULTADO: %i\n", ft_memcmp(str1, str2, k));
+*/
+	printf ("BUSCAR %s en %s\n", str1, str2);
+	printf ("RESULTADO: %s\n", ft_strnstr(str2, str1));
 
 	return (0);
 }
