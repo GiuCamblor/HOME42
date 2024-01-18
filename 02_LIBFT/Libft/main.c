@@ -15,19 +15,20 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 int	main(void)
 {
 	int	c;
 	size_t k;
-	char *str1 = "CAS";
-	char *str2 = "BERCANBERCALBERCASBER";
-	char dst1[5];
-	char ch;
-	char *str;
+	char *str1 = "	-2147483650";
+	//char *str2 = "BERCANBERCALBERCASBER";
+	//char dst1[5];
+	//char ch;
+	//char *str;
 
-	k = 8;
-	c = 'A';
+	k = 200;
+	c = 9;
 /*
 	printf ("EN ISALPHA EL VALOR de %i ES: %d\n", c, ft_isalpha(c));
 	printf ("EN FT_ISALPHA EL VALOR de %i ES: %d\n", c, isalpha(c));	
@@ -71,9 +72,12 @@ int	main(void)
 	printf ("COMPARAR \"%s\" Y \"%s\"\n", str1, str2);
 	printf ("RESULTADO: %i\n", strcmp(str1, str2));
 	printf ("RESULTADO: %i\n", ft_memcmp(str1, str2, k));
+	printf ("BUSCAR \"%s\" en \"%s\"\n", str1, str2);
+	printf ("RESULTADO: %s\n", ft_strnstr(str2, str1, k));
 */
-	printf ("BUSCAR %s en %s\n", str1, str2);
-	printf ("RESULTADO: %s\n", ft_strnstr(str2, str1));
+	printf ("ANTES DE ATOI: %s\n", str1);
+	printf ("DESPUÉS DE ATOI: %i\n", atoi(str1));
+	printf ("DESPUÉS DE ATOI: %i\n", ft_atoi(str1));
 
 	return (0);
 }
