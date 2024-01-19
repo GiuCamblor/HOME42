@@ -14,16 +14,18 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
+	unsigned char	*membl1;
+	unsigned char	*membl2;
 	size_t			i;
 
 	i = 0;
-	str1 = (unsigned char *) s1;
-	str2 = (unsigned char *) s2;
-	while (str1[i] && str2[i] && str1[i] == str2[i])
+	membl1 = (unsigned char *) s1;
+	membl2 = (unsigned char *) s2;
+	while (i < n)
 	{
+		if (membl1[i] != membl2[i])
+			return (membl1[i] - membl2[i]);	
 		i++;
 	}
-	return (str1[i] - str2[i]);
+	return (0);
 }

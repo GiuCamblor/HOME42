@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gcamblor <gcamblor@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:40:23 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/10 17:40:26 by gcamblor         ###   ########.fr       */
+/*   Updated: 2024/01/19 18:56:24 by gcamblor         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "libft.h"
 #include <string.h>
@@ -16,19 +16,23 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+ #include <fcntl.h>
 
 int	main(void)
 {
-	int	c;
+	/* //int	c;
 	size_t k;
-	char *str1 = "	-2147483650";
-	//char *str2 = "BERCANBERCALBERCASBER";
+	char *str1 = "paco";
+	char *str2 = "\xff\xaa\xde\x12MACOSAAAAA";
 	//char dst1[5];
 	//char ch;
 	//char *str;
-
-	k = 200;
+	k = 6; */
+/*
 	c = 9;
+
+	printf (strlcat(str1, str2, k));
+*/
 /*
 	printf ("EN ISALPHA EL VALOR de %i ES: %d\n", c, ft_isalpha(c));
 	printf ("EN FT_ISALPHA EL VALOR de %i ES: %d\n", c, isalpha(c));	
@@ -51,7 +55,7 @@ int	main(void)
 	printf ("RESUTADO DE MEMCPY: %s\n", ft_memcpy(str2, str1, k));
 	printf ("ORIGEN EN MEMMOVE: %s\n", str1);
 	printf ("DESTINO DE MEMMOVE: %s\n", str2);
-	printf ("RESUTADO DE MEMMOVE: %s\n", ft_memmove(str2, str1, k));
+	printf ("RESULTADO DE MEMMOVE: %p\n", ft_memmove(str2, str1, k));
 	printf ("ORIGEN EN STRLCPY: %s\n", str1);
 	printf ("DESTINO EN STRLCPY: %s\n", dst1);
 	printf ("RESULTADO: %lu\n", ft_strlcpy(str1, dst1, k));
@@ -71,13 +75,24 @@ int	main(void)
 	printf ("RESULTADO: %s\n", (char *)ft_memchr(str1, c, k));
 	printf ("COMPARAR \"%s\" Y \"%s\"\n", str1, str2);
 	printf ("RESULTADO: %i\n", strcmp(str1, str2));
-	printf ("RESULTADO: %i\n", ft_memcmp(str1, str2, k));
+*/
+	/* printf ("RESULTADO: %i\n", memcmp(str1, str2, k));
+	printf ("RESULTADO: %i\n", ft_memcmp(str1, str2, k)); */
+/*
 	printf ("BUSCAR \"%s\" en \"%s\"\n", str1, str2);
 	printf ("RESULTADO: %s\n", ft_strnstr(str2, str1, k));
-*/
 	printf ("ANTES DE ATOI: %s\n", str1);
 	printf ("DESPUÉS DE ATOI: %i\n", atoi(str1));
 	printf ("DESPUÉS DE ATOI: %i\n", ft_atoi(str1));
+*/
+	int fd;
+
+	fd = open("txt", O_WRONLY);
+	
+	ft_putendl_fd("CACAFUTI", fd);
+
+	close(fd);
+
 
 	return (0);
 }
