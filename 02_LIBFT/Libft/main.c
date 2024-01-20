@@ -6,7 +6,7 @@
 /*   By: gcamblor <gcamblor@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:40:23 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/19 18:56:24 by gcamblor         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:56:37 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -16,20 +16,20 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
- #include <fcntl.h>
+#include <fcntl.h>
 
 int	main(void)
 {
-	/* //int	c;
-	size_t k;
-	char *str1 = "paco";
-	char *str2 = "\xff\xaa\xde\x12MACOSAAAAA";
+ 	//int	c;
+	//size_t k;
+	char *str1 = "FRIGOL";
+	char *str2 = "DEDO";
+/*
 	//char dst1[5];
 	//char ch;
 	//char *str;
-	k = 6; */
-/*
-	c = 9;
+	//k = 6;
+	//c = 9;
 
 	printf (strlcat(str1, str2, k));
 */
@@ -85,14 +85,10 @@ int	main(void)
 	printf ("DESPUÉS DE ATOI: %i\n", atoi(str1));
 	printf ("DESPUÉS DE ATOI: %i\n", ft_atoi(str1));
 */
-	int fd;
+	//int fd;
 
-	fd = open("txt", O_WRONLY);
-	
-	ft_putendl_fd("CACAFUTI", fd);
-
-	close(fd);
-
-
+	//fd = open("txt", O_WRONLY);
+	printf("%s\n", ft_strjoin(str1, str2));
+	//close(fd);
 	return (0);
 }
