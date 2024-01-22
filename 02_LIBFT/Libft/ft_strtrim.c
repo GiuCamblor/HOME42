@@ -6,7 +6,7 @@
 /*   By: gcamblor <gcamblor@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:16:26 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/22 09:30:45 by gcamblor         ###   ########.fr       */
+/*   Updated: 2024/01/22 21:53:17 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -19,23 +19,25 @@ char *ft_strtrim(char const *s1, char const *set)
     char *dst;
     int dstlen;
 
-    i = 0;
-    j = ft_strlen(s1) - 1;
-    while (ft_strchr(set, (int)s1[i]))
-        i++;
-    while (ft_strrchr(set, (int)s1[j]))
-        j--;
-    dstlen = (j - i);
-    dst = malloc(dstlen + 1);
-    if (!dst)
+    if (!s1 || !set)
         return(0);
-    j = 0;
-    dst[j + dstlen] = '\0';
-    while (dst)
-    {
-        dst[j] = s1[i];
-        i++;
-        j++;
-    }
-    return(dst);
+        i = 0;
+        j = ft_strlen(s1);
+        while (i < j && ft_strchr(set, (int)s1[i]))
+            i++;
+        while (j > i && ft_strrchr(set, (int)s1[j]))
+            j--;
+        dstlen = (j - i + 1);
+        dst = malloc(dstlen + 1);
+        if (!dst)
+            return(0);
+        j = 0;
+        dst[dstlen] = '\0';
+        while (j < dstlen)
+        {
+            dst[j] = s1[i];
+            i++;
+            j++;
+        }
+        return(dst);
 }

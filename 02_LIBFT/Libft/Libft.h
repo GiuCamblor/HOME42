@@ -1,21 +1,24 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Libft.h                                            :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <gcamblor@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:20:32 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/22 09:21:58 by gcamblor         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:16:55 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <unistd.h>
-# include <stddef.h>
-# include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <fcntl.h>
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);

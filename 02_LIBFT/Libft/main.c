@@ -6,24 +6,18 @@
 /*   By: gcamblor <gcamblor@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:40:23 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/22 09:25:00 by gcamblor         ###   ########.fr       */
+/*   Updated: 2024/01/22 21:41:25 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "libft.h"
-#include <string.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
-#include <fcntl.h>
 
 int	main(void)
 {
  	//int	c;
 	//size_t k;
-	char *str1 = "AFENBOJCIRL";
-	char *str2 = "ABC";
+	char str1[50] = "ABCFENCBABCOJCBA";
+	char str2[4] = "ABC";
 /*
 	//char dst1[5];
 	//char ch;
