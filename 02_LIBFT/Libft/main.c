@@ -6,7 +6,7 @@
 /*   By: gcamblor <gcamblor@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:40:23 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/20 19:56:37 by gcamblor         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:25:00 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -22,8 +22,8 @@ int	main(void)
 {
  	//int	c;
 	//size_t k;
-	char *str1 = "FRIGOL";
-	char *str2 = "DEDO";
+	char *str1 = "AFENBOJCIRL";
+	char *str2 = "ABC";
 /*
 	//char dst1[5];
 	//char ch;
@@ -88,7 +88,7 @@ int	main(void)
 	//int fd;
 
 	//fd = open("txt", O_WRONLY);
-	printf("%s\n", ft_strjoin(str1, str2));
+	printf("%s\n", ft_strtrim(str1, str2));
 	//close(fd);
 	return (0);
 }

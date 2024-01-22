@@ -25,9 +25,11 @@ SRCS =	ft_isalpha.c \
 		ft_memcpy.c \
 		ft_memmove.c \
 		ft_strlcpy.c \
+		ft_strlcat.c \
 		ft_toupper.c \
 		ft_tolower.c \
 		ft_strchr.c \
+		ft_strrchr.c \
 		ft_strcmp.c \
 		ft_memchr.c \
 		ft_memcmp.c \
@@ -39,7 +41,9 @@ SRCS =	ft_isalpha.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
-		ft_strjoin.c
+		ft_substr.c \
+		ft_strjoin.c \
+		ft_strtrim.c
 
 OBJS = $(SRCS:%.c=%.o)
 

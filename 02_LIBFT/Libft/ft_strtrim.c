@@ -1,28 +1,41 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <gcamblor@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 22:23:40 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/22 06:14:14 by gcamblor         ###   ########.fr       */
+/*   Created: 2024/01/22 07:16:26 by gcamblor          #+#    #+#             */
+/*   Updated: 2024/01/22 09:30:45 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-size_t  strlcat(char *dst, const char *src, size_t dstsize)
+#include "libft.h"
+
+char *ft_strtrim(char const *s1, char const *set)
 {
     int i;
     int j;
+    char *dst;
+    int dstlen;
 
-    i = strlen(dst) + 1;
+    i = 0;
+    j = ft_strlen(s1) - 1;
+    while (ft_strchr(set, (int)s1[i]))
+        i++;
+    while (ft_strrchr(set, (int)s1[j]))
+        j--;
+    dstlen = (j - i);
+    dst = malloc(dstlen + 1);
+    if (!dst)
+        return(0);
     j = 0;
-    while (i < dstsize)
+    dst[j + dstlen] = '\0';
+    while (dst)
     {
-        dst[i] = src[j];
+        dst[j] = s1[i];
         i++;
         j++;
     }
-    dst[i] = '\0'
-    return(&dst);
+    return(dst);
 }

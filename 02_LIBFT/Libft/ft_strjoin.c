@@ -6,7 +6,7 @@
 /*   By: gcamblor <gcamblor@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 18:41:55 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/20 20:00:20 by gcamblor         ###   ########.fr       */
+/*   Updated: 2024/01/22 06:44:45 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -18,7 +18,7 @@ char    *ft_strjoin(char const *s1, char const *s2)
     int i;
     int j;
 
-    d = malloc(20);
+    d = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
     if (!d)
         return(0);
     i = 0;
