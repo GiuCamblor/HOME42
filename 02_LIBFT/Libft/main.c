@@ -6,7 +6,7 @@
 /*   By: gcamblor <gcamblor@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:40:23 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/22 21:41:25 by gcamblor         ###   ########.fr       */
+/*   Updated: 2024/01/23 22:59:37 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -14,20 +14,21 @@
 
 int	main(void)
 {
- 	//int	c;
-	//size_t k;
-	char str1[50] = "ABCFENCBABCOJCBA";
-	char str2[4] = "ABC";
+ 	unsigned int	start;
+	size_t len;
+	char *str1 = "CARACULO";
 /*
+	char *str2 = " Mundo";
 	//char dst1[5];
 	//char ch;
 	//char *str;
-	//k = 6;
-	//c = 9;
+*/
+	start = 7;
+	len = 2;
+/*
 
 	printf (strlcat(str1, str2, k));
-*/
-/*
+
 	printf ("EN ISALPHA EL VALOR de %i ES: %d\n", c, ft_isalpha(c));
 	printf ("EN FT_ISALPHA EL VALOR de %i ES: %d\n", c, isalpha(c));	
 	printf ("EN FT_ISDIGIT EL VALOR de %i ES: %i\n", c, ft_isdigit(c));
@@ -69,10 +70,10 @@ int	main(void)
 	printf ("RESULTADO: %s\n", (char *)ft_memchr(str1, c, k));
 	printf ("COMPARAR \"%s\" Y \"%s\"\n", str1, str2);
 	printf ("RESULTADO: %i\n", strcmp(str1, str2));
-*/
-	/* printf ("RESULTADO: %i\n", memcmp(str1, str2, k));
-	printf ("RESULTADO: %i\n", ft_memcmp(str1, str2, k)); */
-/*
+
+	printf ("RESULTADO: %i\n", memcmp(str1, str2, k));
+	printf ("RESULTADO: %i\n", ft_memcmp(str1, str2, k));
+
 	printf ("BUSCAR \"%s\" en \"%s\"\n", str1, str2);
 	printf ("RESULTADO: %s\n", ft_strnstr(str2, str1, k));
 	printf ("ANTES DE ATOI: %s\n", str1);
@@ -82,7 +83,7 @@ int	main(void)
 	//int fd;
 
 	//fd = open("txt", O_WRONLY);
-	printf("%s\n", ft_strtrim(str1, str2));
+	printf("RESULTADO: %s\n", ft_substr(str1, start, len));
 	//close(fd);
 	return (0);
 }
