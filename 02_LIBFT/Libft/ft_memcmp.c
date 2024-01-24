@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 21:00:40 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/17 21:00:44 by gcamblor         ###   ########.fr       */
+/*   Created: 2024/01/24 18:15:07 by gcamblor          #+#    #+#             */
+/*   Updated: 2024/01/24 18:15:12 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	while (i < n)
 	{
 		if (membl1[i] != membl2[i])
-			return (membl1[i] - membl2[i]);	
+			return (membl1[i] - membl2[i]);
 		i++;
 	}
 	return (0);

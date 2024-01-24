@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 20:43:05 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/15 20:43:10 by gcamblor         ###   ########.fr       */
+/*   Created: 2024/01/24 17:59:08 by gcamblor          #+#    #+#             */
+/*   Updated: 2024/01/24 17:59:12 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	size_t				i;
 
 	if (!dst && !src)
-		return(0);
+		return (0);
 	d = (unsigned char *) dst;
 	s = (unsigned char *) src;
 	i = 0;

@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 17:07:23 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/19 17:07:27 by gcamblor         ###   ########.fr       */
+/*   Created: 2024/01/24 16:59:55 by gcamblor          #+#    #+#             */
+/*   Updated: 2024/01/24 17:00:11 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	void *z;
-	
+	void	*z;
+
 	z = malloc(count * size);
 	if (!z)
-		return(0);
+		return (0);
 	ft_bzero(z, count * size);
-	return(z);
+	return (z);
 }

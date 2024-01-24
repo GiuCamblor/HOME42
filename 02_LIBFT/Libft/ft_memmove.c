@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 19:38:43 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/16 19:38:47 by gcamblor         ###   ########.fr       */
+/*   Created: 2024/01/24 17:59:47 by gcamblor          #+#    #+#             */
+/*   Updated: 2024/01/24 17:59:50 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	size_t				i;
 
 	if (dst == src)
-		return(dst);
+		return (dst);
 	d = (unsigned char *) dst;
 	s = (unsigned char *) src;
 	i = 0;
