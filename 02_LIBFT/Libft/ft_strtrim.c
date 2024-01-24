@@ -35,9 +35,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	dst[dstlen] = '\0';
 	while (j < dstlen)
 	{
-		dst[j] = s1[i];
-		i++;
-		j++;
+		dst[j++] = s1[i++];
 	}
 	return (dst);
 }

@@ -16,15 +16,15 @@ int	main(void)
 {
 	unsigned int	start;
 	size_t			len;
-	char			*str1 = "CARACULO";
+	char			*str1 = "i just want this part #############";
 /*
 	char *str2 = " Mundo";
 	//char dst1[5];
 	//char ch;
 	//char *str;
 */
-	start = 7;
-	len = 2;
+	start = 5;
+	len = 10;
 /*
 
 	printf (strlcat(str1, str2, k));
