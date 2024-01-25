@@ -80,10 +80,10 @@ int	main(void)
 	printf ("DESPUÉS DE ATOI: %i\n", atoi(str1));
 	printf ("DESPUÉS DE ATOI: %i\n", ft_atoi(str1));
 */
-	//int fd;
+	int fd;
 
-	//fd = open("txt", O_WRONLY);
-	printf("RESULTADO: %s\n", ft_substr(str1, start, len));
-	//close(fd);
+	fd = open("punbr_TEST.txt", O_WRONLY);
+	ft_putnbr_fd(-2147483648LL, 1);
+	close(fd);
 	return (0);
 }

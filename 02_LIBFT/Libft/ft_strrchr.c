@@ -27,7 +27,7 @@ char	*ft_strrchr(const char *s, int c)
 		{
 			if (s[i] == (char)c)
 				return (&((char *)s)[i]);
-				i--;
+			i--;
 		}
 		if (s[0] == (char)c)
 			return (&((char *)s)[0]);
