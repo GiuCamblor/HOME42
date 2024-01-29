@@ -14,31 +14,19 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int		sign;
-	int		div;
-	char	res;
-	int		mod;
+	long nbr;
 
-	div = 1;      //CALCULA EL DIVISOR
-	while ((n / 10) > 0)
+	nbr = n;
+	if (nbr < 0)
 	{
-		n = n / 10;
-		div = div * 10;
+		ft_putchar_fd('-', fd);
+		nbr = nbr * -1;
 	}
-	if (n == -2147483648)
-		write(fd, "-2147483648", 11);
-	if (n < 0 && n > -2147483648)
+	if (nbr > 9)
 	{
-		write(fd, "-", 1);
-		n = -1 * n;
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putnbr_fd(nbr % 10, fd);
 	}
-	while(div > 0)
-	{
-		res = (n / div) + 48;
-		write(fd, &res, 1);
-		mod = n % div;
-		n = mod;
-		div = div / 10;
-	}
+	else
+		ft_putchar_fd(nbr + '0', fd);
 }
-	
