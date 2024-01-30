@@ -83,7 +83,7 @@ int	main(void)
 	int fd;
 
 	//fd = open("punbr_TEST.txt", O_WRONLY);
-	ft_putnbr_fd(2147483647, 1);
+	ft_split("¡Hola mundo!", ' ');
 	close(fd);
 	return (0);
 }
