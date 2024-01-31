@@ -14,19 +14,19 @@
 
 int	main(void)
 {
+/*
 	unsigned int	start;
 	size_t			len;
 	char			*str1 = "i just want this part #############";
-/*
 	char *str2 = " Mundo";
 	//char dst1[5];
 	//char ch;
 	//char *str;
-*/
 	start = 5;
 	len = 10;
-/*
+*/
 
+/*
 	printf (strlcat(str1, str2, k));
 
 	printf ("EN ISALPHA EL VALOR de %i ES: %d\n", c, ft_isalpha(c));
@@ -80,10 +80,12 @@ int	main(void)
 	printf ("DESPUÉS DE ATOI: %i\n", atoi(str1));
 	printf ("DESPUÉS DE ATOI: %i\n", ft_atoi(str1));
 */
-	int fd;
+	//int fd;
 
 	//fd = open("punbr_TEST.txt", O_WRONLY);
-	ft_split("¡Hola mundo!", ' ');
-	close(fd);
+	ft_split(" Hola mundo! 1564 fin", ' ');
+/*
+ 	close(fd);
 	return (0);
+*/
 }
