@@ -1,6 +1,6 @@
-/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
+/* ************************************************************************** */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <gcamblor@student.42urduliz.co    +#+  +:+       +#+        */
@@ -13,38 +13,14 @@
 #include "libft.h"
 #include <stdio.h> 
 
-size_t	fun_wordCount(char const *s, char c);
-char	*fun_fillArrayWords(char *arr, const char *s, int s_ind, int w_ind, char c);
-
-size_t	fun_wordCount(char const *s, char c)
-{
-	size_t	word;
-	int		wordis;
-
-	wordis = 0;
-	word = 0;
-	while (*s)
-	{
-		if (*s == c)
-		{
-			wordis = 0;
-		}
-		else
-		{
-			if (!wordis)
-			{
-				word++;
-				wordis = 1;
-			}
-		}
-		s++;
-	}
-	return (word);
-}
-
-char	*fun_fillArrayWords(char *arr, const char *s, int s_ind, int w_ind, char c)
-{
-	s_ind = s_ind - w_ind;
+size_t	af_substrcnt(char const *s, char c);
+//char	*faf_fillArrayWords(char *arr, const char *s, int s_ind, char c);
+char	*af_substrfill(char const *s, int s_ind, int w_ind, char c);
+/*
+char	*fun_fillArrayWords(char *arr, const char *s, int s_ind, char c)		////////////FUNCIÓN AUXILIAR SUSTITUIDA POR ft_substr
+{																							(Al sacar la resta s_ind = s_ind - w_ind para no superar los cuatro argumentos, había que recuperar el valor después de esta función o de ft_substr---COMENTAR)
+	int w_ind;
+	//s_ind = s_ind - w_ind;
 	w_ind = 0;
 	while (s[s_ind] && s[s_ind] != c)
 	{	
@@ -55,60 +31,75 @@ char	*fun_fillArrayWords(char *arr, const char *s, int s_ind, int w_ind, char c)
 	arr[w_ind] = '\0';
 	return(arr);
 }
-char	**ft_split(char const *s, char c)
-{
-	int		word_cnt;
-	int		s_ind;
-	int		word_ind;
-	char	**arr;
+*/
 
-	word_cnt = 0;
-	s_ind = 0;
-	arr = (char **)malloc ((fun_wordCount(s, c) + 1) * sizeof(char *));
-	if (!arr)
-		return (0);
-	while (word_cnt < fun_wordCount(s, c))
+size_t	af_substrcnt(char const *s, char c)
+{
+	size_t	substrcnt;
+	int		substr;
+
+	substr = 0;
+	substrcnt = 0;
+	while (*s)
 	{
-/////////////////////////////////// SACAR A FUNCIÓN
-/*
+		if (*s == c)
+		{
+			substr = 0;
+		}
+		else
+		{
+			if (!substr)
+			{
+				substrcnt++;
+				substr = 1;
+			}
+		}
+		s++;
+	}
+	return (substrcnt);
+}
+char	*af_substrfill(char const *s, int s_ind, int substr_ind, char c)
+{
+		char *arr;
+
  		while (s[s_ind] == c)
 			s_ind++;
-		word_ind = 0;
-		while (s[s_ind] && s[s_ind] != c)
+		substr_ind = 0;
+		while (s[s_ind] && s[substr_ind] != c)
 		{
 			s_ind++;
-			word_ind++;
+			substr_ind++;
 		}
-*/
-/////////////////////////////////// SACAR A FUNCIÓN
-		arr[word_cnt] = malloc ((word_ind + 1) * sizeof(char));
-		if (!arr[word_cnt])
-			return (0);
-		arr[word_cnt] = fun_fillArrayWords(arr[word_cnt], s, s_ind, word_ind, c);
-		printf("PALABRA %i: %s\n", word_cnt, arr[word_cnt]);
-		word_cnt++;
+		s_ind = s_ind - substr_ind;
+		arr = ft_substr(s, s_ind, substr_ind);
+		s_ind = s_ind + substr_ind;
+		printf("%i\n", s_ind);
+		return (arr);
+}	
+
+char	**ft_split(char const *s, char c)
+{
+	int		substr_cnt;
+	int		s_ind;
+	int		substr_ind;
+	char	**arr;
+
+	s_ind = 0;
+	c = ' ';
+	substr_cnt = 0;
+	af_substrcnt(s, c);
+	arr = (char **)malloc ((af_substrcnt(s, c) + 1) * sizeof(char *));
+	if (!arr)
+		return (0);
+	while (substr_cnt < af_substrcnt(s, c))
+	{	
+		arr[substr_cnt] = af_substrfill(s, s_ind, substr_ind, c);
+		s_ind = s_ind - ft_strlen(arr[substr_cnt]);
+		//s_ind = s_ind + substr_ind;
+		printf("PALABRA %i: %s\n", substr_cnt + 1, arr[substr_cnt]);
+		substr_cnt++;
 	}
-	arr[word_cnt] = NULL;
+	printf("SUBSTRINGS: %i\n", substr_cnt);
+	//arr[word_cnt] = NULL;
 	return (arr);
 }
-
-/*
-*/
-/*
-int 	main(void)
-{
-	char* arr;
-	char* s;
-	int s_ind;
-	int w_ind;
-	char c;
-
-	s = " monoloco  pacalaca";
-	s_ind = 18;
-	w_ind = 7;
-	c = ' ';
-	arr = fun_fillArrayWords(arr, s, s_ind, w_ind, c);
-	printf("%s", arr);
-	return(0);
-}
-*/

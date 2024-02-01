@@ -83,7 +83,7 @@ int	main(void)
 	//int fd;
 
 	//fd = open("punbr_TEST.txt", O_WRONLY);
-	ft_split(" Hola mundo! 1564 fin", ' ');
+	ft_split("     PRIMERA   SEGUNDA    TERCERA  CUARTA", ' ');
 /*
  	close(fd);
 	return (0);
