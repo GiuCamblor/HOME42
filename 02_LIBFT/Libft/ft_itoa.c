@@ -14,10 +14,32 @@
 
 char	*ft_itoa(int n)
 {
+	char	*str;
+	int		i;
+	int		div;
+
+	i = 0;
+	div = 10;
+	if n = -2147483648
+
+	while (n / 10 >= 10)
+	{
+		n / 10;
+		i++;
+		div = div * 10;
+	}
+	str = malloc(i * sizeof(char));
+	if(!str)
+		return(0);
+	i = 0;
 	if (n < 0)
 	{
-		write(1, '-', 1);
+		str[i] = "-";
 		n = -1 * n;
+		i++;
 	}
-	
+	else
+	{
+
+	}
 }
