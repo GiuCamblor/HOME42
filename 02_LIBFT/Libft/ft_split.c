@@ -16,7 +16,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*af_substr(char const *s, unsigned int start, size_t len);
 size_t	af_substrcnt(char const *s, char c);
 //char	*faf_fillArrayWords(char *arr, const char *s, int s_ind, char c);
-char	*af_substrfill(char const *s, int s_ind, int w_ind, char c);
+char	*af_substrfill(char const *s, int s_ind, char c);
 char	*af_substr(char const *s, unsigned int start, size_t len)		////////////FUNCIÓN AUXILIAR SUSTITUIDA POR ft_substr
 {
 	char	*d;
@@ -73,52 +73,51 @@ size_t	af_substrcnt(char const *s, char c)
 	}
 	return (substrcnt);
 }
-char	*af_substrfill(char const *s, int s_ind, int substr_ind, char c)
+char	*af_substrfill(char const *s, int s_ind, char c)
 {
-		char *arr;
-
- 		while (s[s_ind] == c)
+		char	*arr;
+		int		substr_ind;
+ 		while (s[s_ind] && s[s_ind] == c)
 			s_ind++;
 		substr_ind = 0;
-		while (s[s_ind] && s[s_ind] == c)
+		while (s[s_ind] != c)
 		{
 			s_ind++;
+			substr_ind++;
 		}
-printf("SIND: %d\n", s_ind);
-printf("SUBSTRIND: %d\n", substr_ind);
-printf("STRING: %s\n", s);
+		s_ind = s_ind - substr_ind;
 		arr = af_substr(s, s_ind, substr_ind);
-printf("SUBSTRING: %s\n", arr);
-printf("SUBSTR_LEN_IN FILL: %zu\n", ft_strlen(arr));
-		s_ind = s_ind + substr_ind;
 		return (arr);
 }	
 
 char	**ft_split(char const *s, char c)
 {
-	int		substr_cnt;
-	int		s_ind;
-	int		substr_ind;
-	char	**arr;
+	size_t		substr_cnt;
+	int			s_ind;
+	char		**arr;
 
 	s_ind = 0;
-	c = ' ';
-	substr_cnt = 0;
-	af_substrcnt(s, c);
+	substr_cnt = af_substrcnt(s, c);
+	//printf("index %zu\n", substr_cnt);
 	arr = (char **)malloc ((af_substrcnt(s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (0);
+	arr[substr_cnt] = NULL;
+	substr_cnt = 0;
 	while (substr_cnt < af_substrcnt(s, c))
 	{	
 		while (s[s_ind] == c)
 			s_ind++;
-		arr[substr_cnt] = af_substrfill(s, s_ind, substr_ind, c);
+		arr[substr_cnt] = af_substrfill(s, s_ind, c);
+		//printf("arr[substri...]: %s\n", arr[substr_cnt]);
 		s_ind = s_ind + ft_strlen(arr[substr_cnt]);
-//printf("%i\n", s_ind);
-//printf("SUBSTR_LEN: %zu\n", ft_strlen(arr[substr_cnt]));
-//printf("SUBSTRINGS: %i\n", substr_cnt);
-//printf("SUBSTRING %i: %s\n", substr_cnt + 1, arr[substr_cnt]);
-		substr_cnt++;
+		if (!arr[substr_cnt])
+		{
+			while (substr_cnt >= 0)
+				free (arr[substr_cnt--]);
+			return (NULL);
+		} 
+		substr_cnt++;		
 	}
 	return (arr);
 }

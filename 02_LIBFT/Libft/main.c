@@ -25,7 +25,7 @@ int	main(void)
 	start = 5;
 	len = 10;
 */
-
+	char **split;
 /*
 	printf (strlcat(str1, str2, k));
 
@@ -74,16 +74,22 @@ int	main(void)
 	printf ("RESULTADO: %i\n", memcmp(str1, str2, k));
 	printf ("RESULTADO: %i\n", ft_memcmp(str1, str2, k));
 
-	printf ("BUSCAR \"%s\" en \"%s\"\n", str1, str2);
-	printf ("RESULTADO: %s\n", ft_strnstr(str2, str1, k));
-	printf ("ANTES DE ATOI: %s\n", str1);
-	printf ("DESPUÉS DE ATOI: %i\n", atoi(str1));
-	printf ("DESPUÉS DE ATOI: %i\n", ft_atoi(str1));
+
 */
 	//int fd;
 
 	//fd = open("punbr_TEST.txt", O_WRONLY);
-	ft_split("          PRIMERA   SEGUNDA    TERCERA  CUARTA", ' ');
+	int i;
+	i = 0;
+	split = ft_split("UNA", ' ');
+	while (split[i])
+	{
+		printf("La posición : %d y su contenido: %s\n", i, split[i]);
+		i++;
+	}
+
+	//printf("%p\n", split[4]);
+	//system("leaks a.out");
 /*
  	close(fd);
 	return (0);
