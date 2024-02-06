@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
@@ -8,16 +8,16 @@
 /*   Created: 2024/01/30 16:42:04 by gcamblor          #+#    #+#             */
 /*   Updated: 2024/02/02 12:26:48 by gcamblor         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h> 
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+
 char	*af_substr(char const *s, unsigned int start, size_t len);
 size_t	af_substrcnt(char const *s, char c);
-//char	*faf_fillArrayWords(char *arr, const char *s, int s_ind, char c);
 char	*af_substrfill(char const *s, int s_ind, char c);
-char	*af_substr(char const *s, unsigned int start, size_t len)		////////////FUNCIÓN AUXILIAR SUSTITUIDA POR ft_substr
+
+char	*af_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*d;
 
@@ -32,21 +32,6 @@ char	*af_substr(char const *s, unsigned int start, size_t len)		////////////FUNC
 	d[len] = '\0';
 	return (d);
 }
-/*
-{																							(Al sacar la resta s_ind = s_ind - w_ind para no superar los cuatro argumentos, había que recuperar el valor después de esta función o de ft_substr---COMENTAR)
-	int w_ind;
-	//s_ind = s_ind - w_ind;
-	w_ind = 0;
-	while (s[s_ind] && s[s_ind] != c)
-	{	
-		arr[w_ind] = s[s_ind];
-		s_ind++;
-		w_ind++;
-	}
-	arr[w_ind] = '\0';
-	return(arr);
-}
-*/
 
 size_t	af_substrcnt(char const *s, char c)
 {
@@ -73,22 +58,24 @@ size_t	af_substrcnt(char const *s, char c)
 	}
 	return (substrcnt);
 }
+
 char	*af_substrfill(char const *s, int s_ind, char c)
 {
-		char	*arr;
-		int		substr_ind;
- 		while (s[s_ind] && s[s_ind] == c)
-			s_ind++;
-		substr_ind = 0;
-		while (s[s_ind] != c)
-		{
-			s_ind++;
-			substr_ind++;
-		}
-		s_ind = s_ind - substr_ind;
-		arr = af_substr(s, s_ind, substr_ind);
-		return (arr);
-}	
+	char	*arr;
+	int		substr_ind;
+
+	while (s[s_ind] && s[s_ind] == c)
+		s_ind++;
+	substr_ind = 0;
+	while (s[s_ind] != c)
+	{
+		s_ind++;
+		substr_ind++;
+	}
+	s_ind = s_ind - substr_ind;
+	arr = af_substr(s, s_ind, substr_ind);
+	return (arr);
+}
 
 char	**ft_split(char const *s, char c)
 {
@@ -98,26 +85,24 @@ char	**ft_split(char const *s, char c)
 
 	s_ind = 0;
 	substr_cnt = af_substrcnt(s, c);
-	//printf("index %zu\n", substr_cnt);
 	arr = (char **)malloc ((af_substrcnt(s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (0);
 	arr[substr_cnt] = NULL;
 	substr_cnt = 0;
 	while (substr_cnt < af_substrcnt(s, c))
-	{	
+	{
 		while (s[s_ind] == c)
 			s_ind++;
 		arr[substr_cnt] = af_substrfill(s, s_ind, c);
-		//printf("arr[substri...]: %s\n", arr[substr_cnt]);
 		s_ind = s_ind + ft_strlen(arr[substr_cnt]);
 		if (!arr[substr_cnt])
 		{
 			while (substr_cnt >= 0)
 				free (arr[substr_cnt--]);
 			return (NULL);
-		} 
-		substr_cnt++;		
+		}
+		substr_cnt++;
 	}
 	return (arr);
 }

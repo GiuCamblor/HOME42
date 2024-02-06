@@ -25,8 +25,8 @@ int	main(void)
 	start = 5;
 	len = 10;
 */
-	char **split;
 /*
+	char **split;
 	printf (strlcat(str1, str2, k));
 
 	printf ("EN ISALPHA EL VALOR de %i ES: %d\n", c, ft_isalpha(c));
@@ -75,23 +75,21 @@ int	main(void)
 	printf ("RESULTADO: %i\n", ft_memcmp(str1, str2, k));
 
 
-*/
 	//int fd;
-
 	//fd = open("punbr_TEST.txt", O_WRONLY);
-	int i;
+*/
+/*
+//////////////////////////// TEST SPLIT
+ 	int i;
 	i = 0;
-	split = ft_split("UNA", ' ');
+	split = ft_split("    UNA DOS   TRES   CUATRO   5", ' ');
 	while (split[i])
 	{
-		printf("La posición : %d y su contenido: %s\n", i, split[i]);
+		printf("La posición : %d y su contenido: %s\n", i + 1, split[i]);
 		i++;
 	}
-
-	//printf("%p\n", split[4]);
-	//system("leaks a.out");
-/*
- 	close(fd);
-	return (0);
 */
+	printf("TEST 01\n");
+	printf("RESULTADO: %s\n", ft_itoa(1578));
+	printf("TEST 02\n");
 }
