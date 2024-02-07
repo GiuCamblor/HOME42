@@ -13,12 +13,12 @@
 #include "libft.h"
 #include <stdio.h> 
 
-size_t	af_divcalc(int n);
-size_t	af_memcalc(int n);
+//size_t	af_divcalc(int n);
+//size_t	af_memcalc(int n);
 
-size_t	af_divcalc(int n)
+size_t	af_divcalc(long n)
 {
-	size_t div;
+	size_t	div;
 
 	div = 10;
 	if (n == 0)
@@ -30,16 +30,16 @@ size_t	af_divcalc(int n)
 		n = n / 10;
 		div = div * 10;
 	}
-	return(div);
+	return (div);
 }
 
-size_t	af_memcalc(int n)
+size_t	af_memcalc(long n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (n == 0)
-		return 1;
+		return (1);
 	if (n < 0)
 	{
 		n = -n;
@@ -50,47 +50,59 @@ size_t	af_memcalc(int n)
 		n = n / 10;
 		i++;
 	}
-	return(i);
+	return (i);
+}
+
+char	*af_str_fill(char *str, long nbr)
+{
+	int div;
+	int i;
+
+	i = 0;
+	div = af_divcalc(nbr);
+	if (nbr < 0)
+	{
+		str[0] = '-';
+		nbr = -nbr;
+		i++;
+	}
+	if (nbr <= 9)
+		str[i++] = nbr + '0';
+	else
+	{
+		while (div >= 1)
+		{
+			str[i] = nbr / div + '0';
+			nbr = nbr % div;
+			div = div / 10;
+			i++;
+		}
+	}
+	str[i] = '\0';
+	return (str);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*str;
-	int		i;
-	int		div;
+	int		arrlen;
+	long	nbr;
 
-	div = af_divcalc(n);
-	i = af_memcalc(n);
-printf("DÍGITOS: %i\n", i);
-printf("DIVISOR: %i\n", div);
-	str = malloc((i + 1) * sizeof(char));
+	nbr = n;
+	arrlen = af_memcalc(nbr);
+	str = malloc((arrlen + 1) * sizeof(char));
 	if(!str)
 		return NULL;
-	i = 0;
-	if (n < 0)
-	{
-		str[i] = '-';
-		n = -n;
-		i++;
-	}
-	while (div >= 1)
-	{
-		str[i] = n / div + '0';
-		n = n % div;
-		div = div / 10;
-		i++;
-	}
-	i++;
-	str[i] = '\0';
+	str = af_str_fill(str, nbr);
 	return(str);
 }
+/*
 int main()
 {
-    int num = -123456;
+    int num = -9;
     char *result = ft_itoa(num);
     printf("\nResultado: %s\n", result);
     free(result);
     return 0;
 }
-/*
 */

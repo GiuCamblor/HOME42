@@ -88,7 +88,6 @@ char	**ft_split(char const *s, char c)
 	arr = (char **)malloc ((af_substrcnt(s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (0);
-	arr[substr_cnt] = NULL;
 	substr_cnt = 0;
 	while (substr_cnt < af_substrcnt(s, c))
 	{
@@ -104,5 +103,5 @@ char	**ft_split(char const *s, char c)
 		}
 		substr_cnt++;
 	}
-	return (arr);
+	return (arr[substr_cnt] = NULL, arr);
 }

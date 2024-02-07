@@ -80,6 +80,7 @@ int	main(void)
 */
 /*
 //////////////////////////// TEST SPLIT
+*/
  	int i;
 	i = 0;
 	split = ft_split("    UNA DOS   TRES   CUATRO   5", ' ');
@@ -88,8 +89,9 @@ int	main(void)
 		printf("La posición : %d y su contenido: %s\n", i + 1, split[i]);
 		i++;
 	}
-*/
+/*
 	printf("TEST 01\n");
 	printf("RESULTADO: %s\n", ft_itoa(1578));
 	printf("TEST 02\n");
+	*/
 }
