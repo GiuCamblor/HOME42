@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 18:06:16 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/24 18:06:19 by gcamblor         ###   ########.fr       */
+/*   Created: 2024/01/24 18:05:50 by gcamblor          #+#    #+#             */
+/*   Updated: 2024/01/24 18:05:53 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strdup(const char *s1)
 {
-	char	*d;
-	size_t	total;
+	char	*result;
 	int		i;
 
-	if (!s1 || !s2)
-	{
-		if (s1)
-			return (ft_strdup(s2));
-		else if (s2)
-			return (ft_strdup(s1));
-		else
-			return (ft_strdup(""));
-	}
-	total = ft_strlen(s1) + ft_strlen(s2);
-	d = (char *) malloc(total + 1);
-	if (!d)
-		return (d);
+	result = malloc(ft_strlen(s1) + 1);
+	if (!result)
+		return (NULL);
 	i = 0;
-	while (*s1)
-		d[i++] = *s1++;
-	while (*s2)
-		d[i++] = *s2++;
-	d[i] = '\0';
-	return (d);
+	while (s1[i])
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
 }

@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 18:06:16 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/24 18:06:19 by gcamblor         ###   ########.fr       */
+/*   Created: 2024/01/24 18:08:29 by gcamblor          #+#    #+#             */
+/*   Updated: 2024/01/24 18:08:33 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*d;
-	size_t	total;
 	int		i;
+	int		j;
+	char	*dst;
+	int		dstlen;
 
-	if (!s1 || !s2)
-	{
-		if (s1)
-			return (ft_strdup(s2));
-		else if (s2)
-			return (ft_strdup(s1));
-		else
-			return (ft_strdup(""));
-	}
-	total = ft_strlen(s1) + ft_strlen(s2);
-	d = (char *) malloc(total + 1);
-	if (!d)
-		return (d);
+	if (!s1 || !set)
+		return (0);
 	i = 0;
-	while (*s1)
-		d[i++] = *s1++;
-	while (*s2)
-		d[i++] = *s2++;
-	d[i] = '\0';
-	return (d);
+	j = ft_strlen(s1);
+	while (i < j && ft_strchr(set, (int)s1[i]))
+		i++;
+	while (j > i && ft_strrchr(set, (int)s1[j]))
+		j--;
+	dstlen = (j - i + 1);
+	dst = malloc(dstlen + 1);
+	if (!dst)
+		return (0);
+	j = 0;
+	dst[dstlen] = '\0';
+	while (j < dstlen)
+	{
+		dst[j++] = s1[i++];
+	}
+	return (dst);
 }

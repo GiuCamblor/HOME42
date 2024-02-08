@@ -12,11 +12,6 @@
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
-
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	nbr;
@@ -35,8 +30,10 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd(nbr + '0', fd);
 }
+/*
 int main()
 {
 	ft_putnbr_fd(12345, 1);
 	return(0);
 }
+*/

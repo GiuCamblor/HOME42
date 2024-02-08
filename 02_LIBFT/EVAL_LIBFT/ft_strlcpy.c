@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 18:06:16 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/24 18:06:19 by gcamblor         ###   ########.fr       */
+/*   Created: 2024/01/16 20:29:29 by gcamblor          #+#    #+#             */
+/*   Updated: 2024/01/16 20:29:33 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	char	*d;
-	size_t	total;
-	int		i;
+	size_t	i;
+	size_t	j;
 
-	if (!s1 || !s2)
-	{
-		if (s1)
-			return (ft_strdup(s2));
-		else if (s2)
-			return (ft_strdup(s1));
-		else
-			return (ft_strdup(""));
-	}
-	total = ft_strlen(s1) + ft_strlen(s2);
-	d = (char *) malloc(total + 1);
-	if (!d)
-		return (d);
 	i = 0;
-	while (*s1)
-		d[i++] = *s1++;
-	while (*s2)
-		d[i++] = *s2++;
-	d[i] = '\0';
-	return (d);
+	j = 0;
+	while (src[i])
+		i++;
+	if (dstsize == 0)
+		return (i);
+	while (src[j] && j < dstsize - 1)
+	{
+		dst[j] = src[j];
+		j++;
+	}
+	dst[j] = '\0';
+	return (i);
 }

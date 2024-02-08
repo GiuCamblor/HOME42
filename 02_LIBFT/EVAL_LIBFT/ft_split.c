@@ -27,7 +27,7 @@ char	*af_substr(char const *s, unsigned int start, size_t len)
 		len = ft_strlen((char *)s) - start;
 	d = (char *) malloc(sizeof(char) * (len + 1));
 	if (!d)
-		return (NULL);
+		return (0);
 	ft_memcpy(d, s + start, len);
 	d[len] = '\0';
 	return (d);
@@ -67,7 +67,7 @@ char	*af_substrfill(char const *s, int s_ind, char c)
 	while (s[s_ind] && s[s_ind] == c)
 		s_ind++;
 	substr_ind = 0;
-	while (s[s_ind] && s[s_ind] != c)
+	while (s[s_ind] != c)
 	{
 		s_ind++;
 		substr_ind++;
@@ -95,32 +95,13 @@ char	**ft_split(char const *s, char c)
 			s_ind++;
 		arr[substr_cnt] = af_substrfill(s, s_ind, c);
 		s_ind = s_ind + ft_strlen(arr[substr_cnt]);
-		if (!arr)
+		if (!arr[substr_cnt])
 		{
 			while (substr_cnt >= 0)
 				free (arr[substr_cnt--]);
-			free(arr);
 			return (NULL);
 		}
-		s_ind = s_ind + ft_strlen(arr[substr_cnt]);
 		substr_cnt++;
 	}
 	return (arr[substr_cnt] = NULL, arr);
 }
-/*
-int main()
-{
-	char **split;
-	//char * splitme = strdup("Tripouille");
-
- 	int i;
-	i = 0;
-	split = ft_split("Hello!", '	');
-	while (split[i])
-	{
-		printf("La posición : %d y su contenido: %s\n", i + 1, split[i]);
-		i++;
-	}
-}
-
-*/

@@ -21,13 +21,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 	{
 		if (s1)
-			return (ft_strdup(s2));
+			return (strdup(s2));
 		else if (s2)
-			return (ft_strdup(s1));
+			return (strdup(s1));
 		else
 			return (ft_strdup(""));
 	}
-	total = ft_strlen(s1) + ft_strlen(s2);
+	total = strlen(s1) + strlen(s2);
 	d = (char *) malloc(total + 1);
 	if (!d)
 		return (d);

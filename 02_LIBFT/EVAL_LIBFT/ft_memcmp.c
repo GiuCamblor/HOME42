@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 18:06:16 by gcamblor          #+#    #+#             */
-/*   Updated: 2024/01/24 18:06:19 by gcamblor         ###   ########.fr       */
+/*   Created: 2024/01/24 18:15:07 by gcamblor          #+#    #+#             */
+/*   Updated: 2024/01/24 18:15:12 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*d;
-	size_t	total;
-	int		i;
+	unsigned char	*membl1;
+	unsigned char	*membl2;
+	size_t			i;
 
-	if (!s1 || !s2)
-	{
-		if (s1)
-			return (ft_strdup(s2));
-		else if (s2)
-			return (ft_strdup(s1));
-		else
-			return (ft_strdup(""));
-	}
-	total = ft_strlen(s1) + ft_strlen(s2);
-	d = (char *) malloc(total + 1);
-	if (!d)
-		return (d);
 	i = 0;
-	while (*s1)
-		d[i++] = *s1++;
-	while (*s2)
-		d[i++] = *s2++;
-	d[i] = '\0';
-	return (d);
+	membl1 = (unsigned char *) s1;
+	membl2 = (unsigned char *) s2;
+	while (i < n)
+	{
+		if (membl1[i] != membl2[i])
+			return (membl1[i] - membl2[i]);
+		i++;
+	}
+	return (0);
 }
