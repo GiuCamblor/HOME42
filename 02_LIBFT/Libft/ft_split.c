@@ -13,11 +13,7 @@
 #include "libft.h"
 #include <stdio.h> 
 
-char	*af_substr(char const *s, unsigned int start, size_t len);
-size_t	af_substrcnt(char const *s, char c);
-char	*af_substrfill(char const *s, int s_ind, char c);
-
-static	char	*af_substr(char const *s, unsigned int start, size_t len)
+char	*af_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*d;
 
@@ -33,7 +29,7 @@ static	char	*af_substr(char const *s, unsigned int start, size_t len)
 	return (d);
 }
 
-static	size_t	af_substrcnt(char const *s, char c)
+size_t	af_substrcnt(char const *s, char c)
 {
 	size_t	substrcnt;
 	int		substr;
@@ -59,7 +55,7 @@ static	size_t	af_substrcnt(char const *s, char c)
 	return (substrcnt);
 }
 
-static	char	*af_substrfill(char const *s, int s_ind, char c)
+char	*af_substrfill(char const *s, int s_ind, char c)
 {
 	char	*arr;
 	int		substr_ind;
@@ -96,8 +92,8 @@ char	**ft_split(char const *s, char c)
 		arr[substr_cnt] = af_substrfill(s, s_ind, c);
 		if (!arr[substr_cnt])
 		{
-			while (substr_cnt >= 0)
-				free (arr[substr_cnt--]);
+			while (substr_cnt > 0)
+				free (arr[--substr_cnt]);
 			return (free(arr), NULL);
 		}
 		s_ind = s_ind + ft_strlen(arr[substr_cnt]);
@@ -105,20 +101,13 @@ char	**ft_split(char const *s, char c)
 	}
 	return (arr[substr_cnt] = NULL, arr);
 }
-/*
-int main()
+
+/* int main()
 {
-	char **split;
-	//char * splitme = strdup("Tripouille");
+	char	**result;
 
- 	int i;
-	i = 0;
-	split = ft_split("Hello! PIPA", '	');
-	while (split[i])
-	{
-		printf("La posición : %d y su contenido: %s\n", i + 1, split[i]);
-		i++;
-	}
-}
-
-*/
+	result = ft_split("Hola amigo", ' ');
+	for(int x = 0; result[x] != NULL; x++)
+		printf("%s\n", result[x]);
+	return (0);
+} */

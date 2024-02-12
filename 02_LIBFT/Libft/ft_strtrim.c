@@ -11,23 +11,34 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include<unistd.h>
+#include <stdio.h>
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		j;
 	char	*dst;
-	int		dstlen;
 
 	if (!s1 || !set)
-		return (0);
+		return (NULL);
 	i = 0;
-	j = ft_strlen(s1) - 1;
-	dstlen = ft_strlen(s1);
+	j = ft_strlen(s1);
 	while (s1[i] && ft_strchr(set, (int)s1[i]))
 		i++;
-	while (s1[j] && ft_strrchr(set, (int)s1[j]))
+	if (i == j)
+		return (ft_strdup(""));
+	while (ft_strrchr(set, (int)s1[j]))
 		j--;
 	dst = ft_substr(s1, i, j - i + 1);
 	return (dst);
 }
+
+/*   int  main(void)
+{
+char const *s1 = "Hola mundo holaohhhhh";
+char const *set = "Hoh";
+
+printf("%s", ft_strtrim(s1, set));
+return (0);
+} */
