@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h> 
 
 //size_t	af_divcalc(int n);
 //size_t	af_memcalc(int n);
