@@ -17,7 +17,7 @@ char	*af_substr(char const *s, unsigned int start, size_t len);
 size_t	af_substrcnt(char const *s, char c);
 char	*af_substrfill(char const *s, int s_ind, char c);
 
-char	*af_substr(char const *s, unsigned int start, size_t len)
+static	char	*af_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*d;
 
@@ -33,7 +33,7 @@ char	*af_substr(char const *s, unsigned int start, size_t len)
 	return (d);
 }
 
-size_t	af_substrcnt(char const *s, char c)
+static	size_t	af_substrcnt(char const *s, char c)
 {
 	size_t	substrcnt;
 	int		substr;
@@ -59,7 +59,7 @@ size_t	af_substrcnt(char const *s, char c)
 	return (substrcnt);
 }
 
-char	*af_substrfill(char const *s, int s_ind, char c)
+static	char	*af_substrfill(char const *s, int s_ind, char c)
 {
 	char	*arr;
 	int		substr_ind;
@@ -94,13 +94,11 @@ char	**ft_split(char const *s, char c)
 		while (s[s_ind] == c)
 			s_ind++;
 		arr[substr_cnt] = af_substrfill(s, s_ind, c);
-		s_ind = s_ind + ft_strlen(arr[substr_cnt]);
-		if (!arr)
+		if (!arr[substr_cnt])
 		{
 			while (substr_cnt >= 0)
 				free (arr[substr_cnt--]);
-			free(arr);
-			return (NULL);
+			return (free(arr), NULL);
 		}
 		s_ind = s_ind + ft_strlen(arr[substr_cnt]);
 		substr_cnt++;
@@ -115,7 +113,7 @@ int main()
 
  	int i;
 	i = 0;
-	split = ft_split("Hello!", '	');
+	split = ft_split("Hello! PIPA", '	');
 	while (split[i])
 	{
 		printf("La posición : %d y su contenido: %s\n", i + 1, split[i]);

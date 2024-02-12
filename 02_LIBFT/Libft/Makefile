@@ -51,7 +51,7 @@ SRCS =	ft_isalpha.c \
 
 OBJS = $(SRCS:%.c=%.o)
 
-FLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 AR = ar rc
 

@@ -16,7 +16,7 @@
 //size_t	af_divcalc(int n);
 //size_t	af_memcalc(int n);
 
-size_t	af_divcalc(long n)
+static	size_t	af_divcalc(long n)
 {
 	size_t	div;
 
@@ -33,7 +33,7 @@ size_t	af_divcalc(long n)
 	return (div);
 }
 
-size_t	af_memcalc(long n)
+static	size_t	af_memcalc(long n)
 {
 	size_t	i;
 
@@ -53,7 +53,7 @@ size_t	af_memcalc(long n)
 	return (i);
 }
 
-char	*af_str_fill(char *str, long nbr)
+static	char	*af_str_fill(char *str, long nbr)
 {
 	int	div;
 	int	i;
