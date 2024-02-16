@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 CC = cc
 
-SRCS =	ft_isalpha.c \	
+SRCS =	ft_printf.c \	
 
 OBJS = $(SRCS:%.c=%.o)
 

@@ -23,10 +23,12 @@ int	main()
 	int					x;		//INT (hexa)
 	int					X;		//INT (HEXA)
 
-	c = 'S';
+	c = 'R';
 	s = "MALAMUTE";
-	p = &c;
+	p = &s;
+	d = 666;
 	i = 1974;
-	printf("CHAR: %c\nSTR: %s\nADD: %p\n", c, s, p);
+	x = 1974;
+	printf("CHAR:	%c\nSTR:	%s\nADD:	%p\nINT:	%iDEC:	%d\nHEX:	%x\n", c, s, p,d,  i, x);
 	return (0);
 }
