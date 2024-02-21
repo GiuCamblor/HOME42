@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gcamblor- <gcamblor-@student.42urdul>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 19:31:57 by gcamblor          #+#    #+#             */
-/*   Updated: 2023/07/18 14:41:55 by gcamblor         ###   ########.fr       */
+/*   Created: 2024/02/21 21:17:22 by gcamblor-         #+#    #+#             */
+/*   Updated: 2024/02/21 21:17:52 by gcamblor-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_putnbr_base(int n, base)
 {
-	write(1, "&c", 1);
+	long	nbr;
+	size_t	i;
+	int		count;
+
+	i = 0;
+	while (base[i] != '\0')
+		i++;
+	nbr = n;
+	if (nbr > i)
+		count = count + ft_putnbr_base(nbr / base);
+	count = count + ft_putchar_cnt(base[nbr % base]);
+	return(count);
 }

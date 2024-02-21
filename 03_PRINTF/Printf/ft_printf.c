@@ -10,30 +10,53 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#include"ft_printf.h"
 
-int	ft_printf(char const *, ...)
+int af_frmttype(char c, va_list arg)
 {
-	va_list
+    int count = 0;
+
+    if (c == 'c')
+        count = ft_putchar_cnt(va_arg(arg, int));
+    else if (c == 's')
+        count = ft_putstr_cnt(va_arg(arg, char *));
+    else if (c == 'p')
+        count = ft_putstr_cnt(va_arg(arg, char *));
+    else if (c == 'd' || c == 'i')
+        count = ft_putnbrbase_cnt(va_arg(arg, int), DEC);
+    else if (c == 'u')
+        count = ft_putnbrbase_cnt(va_arg(arg, int)), DEC;
+    else if (c == 'x')
+        count = ft_putnbrbase_cnt(va_arg(arg, int), hex);
+    /*
+    else if (c == 'X')
+        ft_puthexa(arg);
+    */
+    return count;
 }
 
-int	main()
+int ft_printf(char const *format, ...)
 {
-	char				c;		//CHARACTER
-	char				*s;		//STRING
-	void				*p;		//ADDRESS
-	int					d;		//DECIMAL
-	int					i;		//INTEGER
-	unsigned int		u;		//UNSIGNED
-	int					x;		//INT (hexa)
-	int					X;		//INT (HEXA)
+    va_list		args;
+    va_start	(args, format);
+    int			count = 0;
+	int			i;
 
-	c = 'R';
-	s = "MALAMUTE";
-	p = &s;
-	d = 666;
-	i = 1974;
-	x = 1974;
-	printf("CHAR:	%c\nSTR:	%s\nADD:	%p\nINT:	%iDEC:	%d\nHEX:	%x\n", c, s, p,d,  i, x);
-	return (0);
+	i = 0;
+    while (format[i] != '\0')
+    {
+        if (format[i] == '%')
+        {
+            count += af_frmttype(format[i + 1], args);
+            i++;
+        }
+        else
+        {
+            write(1, &format[i], 1);
+            count++;
+        }
+		i++;
+    }
+    va_end(args);
+    return count;
 }

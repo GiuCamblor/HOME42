@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_cnt.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 19:31:57 by gcamblor          #+#    #+#             */
-/*   Updated: 2023/07/18 14:41:55 by gcamblor         ###   ########.fr       */
+/*   Created: 2024/01/24 18:04:52 by gcamblor          #+#    #+#             */
+/*   Updated: 2024/01/24 18:04:55 by gcamblor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar(char c)
+void	ft_putstr_cnt(char *s)
 {
-	write(1, "&c", 1);
+	if (s == NULL)
+		return ;
+	write(1, s, ft_strlen(s));
 }
