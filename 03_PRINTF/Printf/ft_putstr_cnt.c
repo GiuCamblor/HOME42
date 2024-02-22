@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putstr_cnt(char *s)
+int	ft_putstr_cnt(char *s)
 {
-	if (s == NULL)
-		return ;
+	if (!s)
+		s = "(null)";
 	write(1, s, ft_strlen(s));
+	return ((int)ft_strlen(s));
 }

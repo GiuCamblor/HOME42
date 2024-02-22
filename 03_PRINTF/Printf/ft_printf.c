@@ -23,15 +23,13 @@ int af_frmttype(char c, va_list arg)
     else if (c == 'p')
         count = ft_putstr_cnt(va_arg(arg, char *));
     else if (c == 'd' || c == 'i')
-        count = ft_putnbrbase_cnt(va_arg(arg, int), DEC);
-    else if (c == 'u')
-        count = ft_putnbrbase_cnt(va_arg(arg, int)), DEC;
+        count = ft_putnbrsign(va_arg(arg, int));
+	else if (c == 'u')
+        count = ft_putnbrbase(va_arg(arg, unsigned long), DEC);
     else if (c == 'x')
-        count = ft_putnbrbase_cnt(va_arg(arg, int), hex);
-    /*
+        count = ft_putnbrbase(va_arg(arg, unsigned long), hex);
     else if (c == 'X')
-        ft_puthexa(arg);
-    */
+        count = ft_putnbrbase(va_arg(arg, unsigned long), HEX);
     return count;
 }
 

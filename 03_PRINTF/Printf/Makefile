@@ -10,11 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = printf.a
 
 CC = cc
 
-SRCS =	ft_printf.c \	
+SRCS =	ft_printf.c \
+		ft_putchar_cnt.c \
+		ft_putnbrbase.c \
+		ft_putstr_cnt.c \
+		ft_strlen.c \
+		ft_putnbrsign.c
 
 OBJS = $(SRCS:%.c=%.o)
 

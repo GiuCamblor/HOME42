@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrbase.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor- <gcamblor-@student.42urdul>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 21:17:22 by gcamblor-         #+#    #+#             */
-/*   Updated: 2024/02/21 21:17:52 by gcamblor-        ###   ########.fr       */
+/*   Created: 2024/02/22 17:21:34 by gcamblor-         #+#    #+#             */
+/*   Updated: 2024/02/22 17:21:38 by gcamblor-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbrbase(unsigned long nbr, char *base)
+size_t	ft_strlen(const char *str)
 {
-	size_t			i;
-	int				count;
+	size_t	i;
 
 	i = 0;
-	while (base[i] != '\0')
+	while (str[i])
+	{
 		i++;
-	count = 0;
-	if (nbr > i)
-		count +=  ft_putnbrbase(nbr / i, base);
-	count +=  ft_putchar_cnt(base[nbr % i]);
-	return(count);
+	}
+	return (i);
 }
