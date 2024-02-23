@@ -10,15 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_libftprintf.h"
 
 int	ft_putnbrsign(long nbr)
 {
 	if (nbr < 0)
-	{
-		ft_putchar_cnt('-');
-		nbr = -nbr;
-	}
-	ft_putnbrbase((unsigned long) nbr, DEC);
-	return(0);
+		return (ft_putchar_cnt('-') + ft_putnbrbase(-nbr, DEC));
+	else
+		return (ft_putnbrbase(nbr, DEC));
 }

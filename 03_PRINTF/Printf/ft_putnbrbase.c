@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_libftprintf.h"
 
 int	ft_putnbrbase(unsigned long nbr, char *base)
 {
@@ -21,8 +21,8 @@ int	ft_putnbrbase(unsigned long nbr, char *base)
 	while (base[i] != '\0')
 		i++;
 	count = 0;
-	if (nbr > i)
-		count +=  ft_putnbrbase(nbr / i, base);
-	count +=  ft_putchar_cnt(base[nbr % i]);
-	return(count);
+	if (nbr >= i)
+		count += ft_putnbrbase(nbr / i, base);
+	count += ft_putchar_cnt(base[nbr % i]);
+	return (count);
 }

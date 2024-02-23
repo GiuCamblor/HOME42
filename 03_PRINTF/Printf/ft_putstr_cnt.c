@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_libftprintf.h"
 
 int	ft_putstr_cnt(char *s)
 {
 	if (!s)
 		s = "(null)";
-	write(1, s, ft_strlen(s));
-	return ((int)ft_strlen(s));
+	return (write(1, s, ft_strlen(s)));
 }

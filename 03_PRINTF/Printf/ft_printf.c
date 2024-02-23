@@ -10,51 +10,60 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include "ft_libftprintf.h"
 
-int af_frmttype(char c, va_list arg)
+int	af_frmttype(char c, va_list arg)
 {
-    int count = 0;
+	int	count;
 
-    if (c == 'c')
-        count = ft_putchar_cnt(va_arg(arg, int));
-    else if (c == 's')
-        count = ft_putstr_cnt(va_arg(arg, char *));
-    else if (c == 'p')
-        count = ft_putstr_cnt(va_arg(arg, char *));
-    else if (c == 'd' || c == 'i')
-        count = ft_putnbrsign(va_arg(arg, int));
+	count = 0;
+	if (c == 'c')
+		count = ft_putchar_cnt(va_arg(arg, int));
+	else if (c == 's')
+		count = ft_putstr_cnt(va_arg(arg, char *));
+	else if (c == 'd' || c == 'i')
+		count = ft_putnbrsign(va_arg(arg, int));
 	else if (c == 'u')
-        count = ft_putnbrbase(va_arg(arg, unsigned long), DEC);
-    else if (c == 'x')
-        count = ft_putnbrbase(va_arg(arg, unsigned long), hex);
-    else if (c == 'X')
-        count = ft_putnbrbase(va_arg(arg, unsigned long), HEX);
-    return count;
+		count = ft_putnbrbase(va_arg(arg, unsigned long), DEC);
+	else if (c == 'x')
+		count = ft_putnbrbase(va_arg(arg, unsigned long), HEXL);
+	else if (c == 'X')
+		count = ft_putnbrbase(va_arg(arg, unsigned long), HEXU);
+	else if (c == '%')
+		count = write (1, "%", 1);
+	else if (c == 'p')
+	{
+		count += ft_putstr_cnt("0x");
+		count += ft_putnbrbase(va_arg(arg, unsigned long), HEXL);
+	}
+	else
+		count = write (1, &c, 1);
+	return (count);
 }
 
-int ft_printf(char const *format, ...)
+int	ft_printf(char const *format, ...)
 {
-    va_list		args;
-    va_start	(args, format);
-    int			count = 0;
+	int			count;
 	int			i;
+	va_list		args;
 
+	va_start (args, format);
+	count = 0;
 	i = 0;
-    while (format[i] != '\0')
-    {
-        if (format[i] == '%')
-        {
-            count += af_frmttype(format[i + 1], args);
-            i++;
-        }
-        else
-        {
-            write(1, &format[i], 1);
-            count++;
-        }
+	while (format[i] != '\0')
+	{
+		if (format[i] == '%')
+		{
+			count += af_frmttype(format[i + 1], args);
+			i++;
+		}
+		else
+		{
+			write(1, &format[i], 1);
+			count++;
+		}
 		i++;
-    }
-    va_end(args);
-    return count;
+	}
+	va_end(args);
+	return (count);
 }

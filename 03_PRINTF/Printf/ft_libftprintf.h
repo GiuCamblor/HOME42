@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_libftprintf.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor- <gcamblor-@student.42urdul>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
 # include <fcntl.h>
 
-# define hex "0123456789abcdef"
+# define HEXL "0123456789abcdef"
 # define DEC "0123456789"
-# define HEX "0123456789ABCDEF"
+# define HEXU "0123456789ABCDEF"
 
 int		ft_printf(char const *format, ...);
 int		ft_putchar_cnt(char c);
