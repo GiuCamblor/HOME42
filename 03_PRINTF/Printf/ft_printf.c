@@ -12,7 +12,7 @@
 
 #include "ft_libftprintf.h"
 
-int	af_frmttype(char c, va_list arg)
+static int	af_frmttype(char c, va_list arg)
 {
 	int	count;
 
@@ -24,17 +24,17 @@ int	af_frmttype(char c, va_list arg)
 	else if (c == 'd' || c == 'i')
 		count = ft_putnbrsign(va_arg(arg, int));
 	else if (c == 'u')
-		count = ft_putnbrbase(va_arg(arg, unsigned long), DEC);
+		count = ft_putnbrbase(va_arg(arg, unsigned int), DEC);
 	else if (c == 'x')
-		count = ft_putnbrbase(va_arg(arg, unsigned long), HEXL);
+		count = ft_putnbrbase(va_arg(arg, unsigned int), HEXL);
 	else if (c == 'X')
-		count = ft_putnbrbase(va_arg(arg, unsigned long), HEXU);
+		count = ft_putnbrbase(va_arg(arg, unsigned int), HEXU);
 	else if (c == '%')
 		count = write (1, "%", 1);
 	else if (c == 'p')
 	{
-		count += ft_putstr_cnt("0x");
-		count += ft_putnbrbase(va_arg(arg, unsigned long), HEXL);
+		count = ft_putstr_cnt("0x");
+		count += ft_putnbrbase(va_arg(arg, unsigned int), HEXL);
 	}
 	else
 		count = write (1, &c, 1);
@@ -67,3 +67,7 @@ int	ft_printf(char const *format, ...)
 	va_end(args);
 	return (count);
 }
+/*
+	if (!format)
+		return (1);
+*/

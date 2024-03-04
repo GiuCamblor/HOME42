@@ -12,7 +12,7 @@
 
 #include "ft_libftprintf.h"
 
-int	ft_putnbrbase(unsigned long nbr, char *base)
+int	ft_putnbrbase(unsigned int nbr, char *base)
 {
 	size_t			i;
 	int				count;
