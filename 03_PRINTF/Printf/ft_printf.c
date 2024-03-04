@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
 
-static int	af_frmttype(char c, va_list arg)
+static int	af_frmttype(va_list arg, char c)
 {
 	int	count;
 
@@ -22,19 +22,19 @@ static int	af_frmttype(char c, va_list arg)
 	else if (c == 's')
 		count = ft_putstr_cnt(va_arg(arg, char *));
 	else if (c == 'd' || c == 'i')
-		count = ft_putnbrsign(va_arg(arg, int));
+		count = ft_putnbrsign(1, va_arg(arg, int));
 	else if (c == 'u')
-		count = ft_putnbrbase(va_arg(arg, unsigned int), DEC);
+		count = ft_putnbrbase(1, va_arg(arg, unsigned long), DEC);
 	else if (c == 'x')
-		count = ft_putnbrbase(va_arg(arg, unsigned int), HEXL);
+		count = ft_putnbrbase(1, va_arg(arg, unsigned long), HEXL);
 	else if (c == 'X')
-		count = ft_putnbrbase(va_arg(arg, unsigned int), HEXU);
+		count = ft_putnbrbase(1, va_arg(arg, unsigned long), HEXU);
 	else if (c == '%')
 		count = write (1, "%", 1);
 	else if (c == 'p')
 	{
 		count = ft_putstr_cnt("0x");
-		count += ft_putnbrbase(va_arg(arg, unsigned int), HEXL);
+		count += ft_putnbrbase(0, va_arg(arg, unsigned long), HEXL);
 	}
 	else
 		count = write (1, &c, 1);
@@ -54,7 +54,7 @@ int	ft_printf(char const *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			count += af_frmttype(format[i + 1], args);
+			count += af_frmttype(args, format[i + 1]);
 			i++;
 		}
 		else

@@ -10,19 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_putnbrbase(unsigned int nbr, char *base)
+int	ft_putnbrbase(int j, unsigned long nbr, char *base)
 {
 	size_t			i;
 	int				count;
 
 	i = 0;
+	if (j == 1)
+		nbr = (unsigned int)nbr;
 	while (base[i] != '\0')
 		i++;
 	count = 0;
 	if (nbr >= i)
-		count += ft_putnbrbase(nbr / i, base);
+		count += ft_putnbrbase(j, nbr / i, base);
 	count += ft_putchar_cnt(base[nbr % i]);
 	return (count);
 }

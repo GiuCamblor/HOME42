@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putstr_cnt(char *s)
 {
