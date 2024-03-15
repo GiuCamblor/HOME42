@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_libftprintf.h                                   :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcamblor- <gcamblor-@student.42urdul>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIBFTPRINTF_H
-# define FT_LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -27,8 +27,8 @@
 int		ft_printf(char const *format, ...);
 int		ft_putchar_cnt(char c);
 int		ft_putstr_cnt(char *s);
-int		ft_putnbrsign(long n);
-int		ft_putnbrbase(unsigned int n, char *base);
+int		ft_putnbrsign(int j, int n);
+int		ft_putnbrbase(int j, unsigned long n, char *base);
 size_t	ft_strlen(const char *str);
 
 #endif
